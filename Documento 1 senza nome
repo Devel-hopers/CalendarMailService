@@ -1,0 +1,8 @@
+Mail microservice
+- Conferma di prenotazione 
+  Request: userEmail, dataBooking(from, to), risorsaBooking
+  
+- Avviso di cancellazione 
+  Request: userEmail, dataBooking(from, to), risorsaBooking
+  
+  Serve un css che emuli quello del sito web 
