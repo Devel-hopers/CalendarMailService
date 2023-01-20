@@ -1,11 +1,15 @@
 package service;
 
-import dto.RequestDto;
+import dto.RequestOptionalDto;
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.AddressException;
+
+import java.io.IOException;
 
 public interface BasicMailService {
 
-    String sendSaveConfirm(RequestDto req);
+    String sendSaveConfirm(RequestOptionalDto req) throws IOException, MessagingException;
 
-    String sendDeletionAdvice(RequestDto req);
+    String sendDeletionAdvice(RequestOptionalDto req);
 
 }

@@ -1,6 +1,9 @@
 package util;
 
 import dto.RequestDto;
+import dto.RequestOptionalDto;
+import jakarta.mail.internet.AddressException;
+import jakarta.mail.internet.InternetAddress;
 
 public class CheckRequest {
 
@@ -14,24 +17,34 @@ public class CheckRequest {
         return instance;
     }
 
-    public RequestDto check(RequestDto req){
-        if(req.getUserEmail().isEmpty()){
-            throw new RuntimeException("{userEmailAddres} not found");
+    public RequestDto check(RequestOptionalDto req) throws AddressException {
+
+        RequestDto checked = new RequestDto();
+
+        if(!req.getUserEmail().isEmpty()){
+            InternetAddress emailAddress;
+            try{
+                emailAddress = new InternetAddress(req.getUserEmail().get());
+            }
+            catch(AddressException e){
+                throw e;
+            }
+            checked.setUserEmail(emailAddress);
         }
 
-        if(req.getFrom().isEmpty()){
-            throw new RuntimeException("{fromDate} not found");
+        if(!req.getFrom().isEmpty()){
+           checked.setFrom(req.getFrom().get());
         }
 
-        if(req.getTo().isEmpty()){
-            throw new RuntimeException("{toDate} not found");
+        if(!req.getTo().isEmpty()){
+            checked.setTo(req.getTo().get());
         }
 
-        if(req.getResourceName().isEmpty()){
-            throw new RuntimeException("{resourceName} not found");
+        if(!req.getResourceName().isEmpty()){
+            checked.setResourceName(req.getResourceName().get());
         }
 
-        return req;
+        return checked;
     }
 
 

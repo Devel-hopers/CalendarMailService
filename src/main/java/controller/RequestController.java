@@ -1,6 +1,6 @@
 package controller;
 
-import dto.RequestDto;
+import dto.RequestOptionalDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,12 +15,12 @@ public class RequestController {
     MailService service;
 
     @PostMapping("/")
-    public String sendConfirmation(@RequestHeader(value = "Confirmation") String type, @RequestBody RequestDto req ){
+    public String sendConfirmation(@RequestHeader(value = "Confirmation") String type, @RequestBody RequestOptionalDto req ){
         return null;
     }
 
     @PostMapping("/")
-    public String sendDeletionAdvice(@RequestHeader(value = "DeletionAdvice") String type, @RequestBody RequestDto req ){
+    public String sendDeletionAdvice(@RequestHeader(value = "DeletionAdvice") String type, @RequestBody RequestOptionalDto req ){
         return null;
     }
 

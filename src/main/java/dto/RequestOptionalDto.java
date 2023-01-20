@@ -3,7 +3,7 @@ package dto;
 import java.time.ZonedDateTime;
 import java.util.Optional;
 
-public class RequestDto {
+public class RequestOptionalDto {
     private Optional<String> userEmail;
 
     private Optional<ZonedDateTime> from;
